@@ -2,6 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+const http = require("http");
+const server = http.createServer(app);
 
 app.get('/', (req, res) => {
     res.send(`<!DOCTYPE html>
@@ -75,9 +77,16 @@ const submitMenuSystem = require('./API/AddOrder');
 app.use("/AddOrder", submitMenuSystem);
 
 //Start the server
-const PORT = 3000;
+// const PORT = 5000;
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`)
-})
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`)
+// });
+
+// // Start the server Microsoft Azure
+const PORT = process.env.PORT || 3000;
+
+server .listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+}); 
 
