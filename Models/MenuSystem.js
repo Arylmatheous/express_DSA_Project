@@ -8,8 +8,6 @@ const OrderSchema = new mongoose.Schema({
 module.exports = mongoose.model("Order", OrderSchema);
 
 
-
-
 // class FormModel {
 //     constructor(orders, totalAmount){
 //         this.orders = orders;

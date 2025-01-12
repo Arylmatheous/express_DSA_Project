@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Status</title>
+    <title>Menu System</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,13 +76,6 @@ const submitMenuSystem = require('./API/AddOrder');
 //Use API
 app.use("/AddOrder", submitMenuSystem);
 
-//Start the server
-// const PORT = 5000;
-
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`)
-// });
-
 // // Start the server Microsoft Azure
 const PORT = process.env.PORT || 3000;
 
@@ -90,3 +83,10 @@ server .listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 }); 
 
+
+//Start the server
+// const PORT = 5000;
+
+// app.listen(PORT, () => {
+//     console.log(`Server is running on http://localhost:${PORT}`)
+// });
