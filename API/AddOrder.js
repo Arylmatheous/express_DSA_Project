@@ -1,10 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const Orders = require("../Models/MenuSystem"); //Import the Mongoose model
+const Orders = require("../MenuSystem"); //Import the Mongoose model
 
 // POST route to handle from submissions
 router.post("/", async(req, res) => {
     const {orders, totalAmount} = req.body;
+
+    if(!orders || !totalAmount){
+        return res.status(400).json({message: "Invalid input. 'orders' and 'totalAmount' are required."})
+    }
 
     try {
         // Create a new document in the database
@@ -16,6 +20,7 @@ router.post("/", async(req, res) => {
     } 
     catch (error) {
         console.error("Error saving order data:", error);
+        res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
 });
 
