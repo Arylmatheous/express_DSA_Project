@@ -67,7 +67,7 @@ mongoose
     });
 
 //Middleware
-app.use(cors({origin: ["https://salandananapi.azurewebsites.net/AddOrder", "http://localhost:3000"], methods: ["GET", "POST"]}));
+app.use(cors({origin: ["https://salandananapi.azurewebsites.net/AddOrder", "http://localhost:3000", "https://zealous-sky-09f1cf200.4.azurestaticapps.net"], methods: ["GET", "POST"]}));
 app.use(express.json());
 
 //Import API folder 
