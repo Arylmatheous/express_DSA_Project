@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Orders = require("../MenuSystem"); //Import the Mongoose model
+const Orders = require("../Models/MenuSystem"); //Import the Mongoose model
 
 // POST route to handle from submissions
 router.post("/", async(req, res) => {

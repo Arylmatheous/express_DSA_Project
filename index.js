@@ -67,7 +67,7 @@ mongoose
     });
 
 //Middleware
-app.use(cors({origin: ["https://zealous-sky-09f1cf200.4.azurestaticapps.net", "http://localhost:3000"], methods: ["GET", "POST"]}));
+app.use(cors({origin: ["https://salandananapi.azurewebsites.net/", "http://localhost:3000"], methods: ["GET", "POST"]}));
 app.use(express.json());
 
 //Import API folder 
@@ -77,28 +77,28 @@ const submitMenuSystem = require('./API/AddOrder');
 app.use("/AddOrder", submitMenuSystem);
 
 // Add this temporary test route
-app.get('/test-mongodb', async (req, res) => {
-    try {
-        // Test the database connection
-        const dbState = mongoose.connection.readyState;
-        const states = {
-            0: 'disconnected',
-            1: 'connected',
-            2: 'connecting',
-            3: 'disconnecting'
-        };
-        res.json({
-            status: states[dbState],
-            dbState: dbState,
-            mongodbUri: mongoose.connection.host
-        });
-    } catch (error) {
-        res.status(500).json({
-            error: error.message,
-            stack: error.stack
-        });
-    }
-});
+// app.get('/test-mongodb', async (req, res) => {
+//     try {
+//         // Test the database connection
+//         const dbState = mongoose.connection.readyState;
+//         const states = {
+//             0: 'disconnected',
+//             1: 'connected',
+//             2: 'connecting',
+//             3: 'disconnecting'
+//         };
+//         res.json({
+//             status: states[dbState],
+//             dbState: dbState,
+//             mongodbUri: mongoose.connection.host
+//         });
+//     } catch (error) {
+//         res.status(500).json({
+//             error: error.message,
+//             stack: error.stack
+//         });
+//     }
+// });
 
 // // Start the server Microsoft Azure
 const PORT = process.env.PORT || 3000;
